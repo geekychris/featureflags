@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: feature-flag-service
+  
+  # Database configuration
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:feature_flags}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:feature_flags_user}
+    password: ${DB_PASSWORD:secure_password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  # JPA configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    show-sql: ${SHOW_SQL:false}
+
+# Server configuration
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+# Memcached configuration
+memcached:
+  servers:
+    - ${MEMCACHED_HOST:localhost}:${MEMCACHED_PORT:11211}
+  expirationTime: ${MEMCACHED_EXPIRATION:3600}
+
+# Logging configuration
+logging:
+  level:
+    com.example.featureflag: ${LOG_LEVEL:INFO}
+    org.springframework: WARN
+    org.hibernate: WARN
+

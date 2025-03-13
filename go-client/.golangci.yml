@@ -1,0 +1,69 @@
+run:
+  timeout: 5m
+  tests: true
+  
+# Configuration for specific linters
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+  govet:
+    check-shadowing: true
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  misspell:
+    locale: US
+  lll:
+    line-length: 120
+  unused:
+    check-exported: false
+  unparam:
+    check-exported: false
+  nakedret:
+    max-func-lines: 40
+
+# Enabled linters
+linters:
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - typecheck
+    - unused
+    - gosec
+    - structcheck
+    - varcheck
+    - stylecheck
+    - gocyclo
+    - goimports
+    - misspell
+    - unconvert
+
+# Issues configuration
+issues:
+  # Maximum number of issues to show
+  max-issues-per-linter: 0
+  max-same-issues: 0
+  
+  # Excluding configuration
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - dupl
+        - lll
+        - gocyclo
+
+# Output configuration
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+  uniq-by-line: true
+  sort-results: true
+

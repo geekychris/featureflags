@@ -1,0 +1,14 @@
+### Send POST request with json body
+POST http://localhost:8080/api/featureflags/3333/b/true
+Content-Type: application/json
+
+{}
+
+### Get request with json body
+GET http://localhost:8080/api/featureflags/1234
+Accept: application/json
+
+
+### Post request with json body
+POST http://localhost:8080/api/featureflags/publish/1234
+Accept: application/json
