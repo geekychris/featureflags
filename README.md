@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Featureflags logo" width="180">
+</p>
+
 # Feature Flag Manager
 
 A robust service for managing feature flags with a REST API, MySQL persistence, and Memcached integration.
